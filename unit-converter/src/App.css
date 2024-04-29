@@ -34,11 +34,12 @@ section {
 article {
     margin: 0 auto;
     padding: 0 2.5rem;
-    max-width: 720px;
+    max-width: 714px;
+    max-height: 195px;
 
     background-color: #2E0039;
     border: 2px solid #FFFFFF;
-    border-radius: 1rem;
+    border-radius: 1.5rem;
     color: #FFFFFF;
 }
 
@@ -49,33 +50,116 @@ article h2 {
 }
 
 /* ********* CONVERSOR UNIDADES ********* */
-select#unidades {
+form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div#unidades {
+    display: flex;
+    align-items: center;
+}
+
+select#opciones {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-color: transparent;
-    padding: 8px;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
-    width: 218px;
-    color: #FFFFFF;
+    border: none;
+    outline: none;
 
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+
+    padding: 8px;
+    width: 218px;
+
+    color: #FFFFFF;
+    background-color: transparent;
+    border-bottom: 1px solid #FFFFFF;
+
+    background-image: url('../public/images/flecha.svg');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 10px;
+}
+
+select#opciones option {
+    color: #000000;
 }
 
 button {
-    margin: 0;
-    padding: 5px;
+    margin: 0 10px;
+    background-color: transparent;
     border: none;
     cursor: pointer;
 }
 
-#buttonIcon {
+#conversion input {
+    border: none;
+    outline: none;
+
+    background-color: transparent;
     color: #FFFFFF;
+    text-align: right;
+    border-bottom: 2px solid #FFFFFF;
+}
+
+#conversion input::-webkit-inner-spin-button,
+#conversion input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* ********* RESULTADO DE LA CONVERSION ********* */
+.footerConvert {
+    margin: 20px 0 40px 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#iconLike {
+    padding-bottom: 30px;
+}
+
+.resultado {
+    display: flex;
+    align-items: center;
+
+
+}
+
+.resultado p {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    text-align: left;
+}
+
+.resultado p>span {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: left;
+
 }
 
 
-/* ********* GUARDAR HISTORIAL CONVERSIONES ********* */
-.iconLike {
-    margin: 20px;
+
+
+/* ********* HISTORIAL CONVERSIONES ********* */
+h4 {
+    margin: 0 auto;
+    max-width: 790px;
+
+    font-weight: 700;
+    line-height: 24px;
+    text-align: left;
+
+    color: #676767;
+
+
 }
