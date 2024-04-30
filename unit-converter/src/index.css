@@ -2,5 +2,7 @@ body {
   font-family: 'Poppins', sans-serif;
   min-width: 320px;
   max-width: 1920px;
-  margin: 2px auto;
+  margin: 0 auto;
+
+  cursor: default;
 }
