@@ -1,14 +1,14 @@
 import './App.css'
-import { Footer } from './components/Footer'
 import { Header } from './components/Header'
-import { Main } from './components/Main'
+import { UnitConverter } from './components/UnitConverter'
+import { Footer } from './components/Footer'
 
 function App () {
   return (
     <>
       <Header />
 
-      <Main />
+      <UnitConverter />
 
       <Footer />
     </>

@@ -29,7 +29,7 @@
 /* ********* CUERPO ********* */
 main {
     padding: 4rem 0;
-    flex-grow: 1;
+    min-height: 76.3vh;
 }
 
 article.convert {

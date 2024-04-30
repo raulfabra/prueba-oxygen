@@ -1,17 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { iconConverter, iconLike } from '../assets/icons'
 import { checkMeasurement, checkQuantity, getReverseConversion } from '../logic/logic'
 import { Saved } from './Saved'
 
-export function Converter () {
+export function UnitConverter () {
   const [option, setOption] = useState('kmAmiles')
   const [quantity, setQuantity] = useState(0)
   const [unity, setUnity] = useState('km')
   const [unityTransform, setUnityTransform] = useState('miles')
-  const [result, setResult] = useState('0')
-
-  const [click, setClick] = useState(false)
-  const [like, setLike] = useState({})
+  const [result, setResult] = useState(0)
+  const [likes, setLikes] = useState({})
 
   const handleSelectChange = (e) => {
     const newOption = e.target.value
@@ -44,24 +42,21 @@ export function Converter () {
     setOption(newOption)
   }
 
-  const handleClickLike = () => {
-    setClick(!click)
+  const handleLike = () => {
+    const itemObject = {
+      quantity,
+      unity,
+      result,
+      unityTransform
+    }
+
+    setLikes(itemObject)
+    setQuantity(0)
+    setResult(0)
   }
 
-  useEffect(() => {
-    if (quantity === 0) return
-
-    const q = quantity
-    const u = unity
-    const r = result
-    const ut = unityTransform
-
-    const items = { q, u, r, ut }
-
-    setLike(items)
-  }, [click])
   return (
-    <>
+    <main>
       <article className='convert'>
         <h2>convert</h2>
         <div className='form'>
@@ -87,7 +82,7 @@ export function Converter () {
         </div>
 
         <div className='footerConvert'>
-          <button id='iconLike' onClick={handleClickLike}>
+          <button id='iconLike' onClick={handleLike}>
             {iconLike()}
           </button>
           <div className='resultado'>
@@ -96,10 +91,8 @@ export function Converter () {
 
         </div>
       </article>
-      <section>
-        <h4>saved</h4>
-        <Saved like={like} />
-      </section>
-    </>
+
+      <Saved e={likes} />
+    </main>
   )
 }
