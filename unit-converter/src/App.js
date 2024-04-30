@@ -7,7 +7,12 @@ function App () {
   return (
     <>
       <Header />
-      <Converter />
+      <main>
+        <article>
+          <h2>convert</h2>
+          <Converter />
+        </article>
+      </main>
       <Saved />
     </>
   )

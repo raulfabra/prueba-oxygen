@@ -27,7 +27,7 @@
 }
 
 /* ********* CUERPO ********* */
-section {
+main {
     padding: 4rem 0;
 }
 
@@ -50,7 +50,7 @@ article h2 {
 }
 
 /* ********* CONVERSOR UNIDADES ********* */
-form {
+.form {
     display: flex;
     align-items: center;
     justify-content: space-between;
