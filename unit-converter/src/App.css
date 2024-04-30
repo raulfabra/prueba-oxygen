@@ -162,7 +162,26 @@ h4 {
 }
 
 .conversionHistory {
-    min-height: 32.7vh;
+    margin: 20px auto;
+    max-width: 790px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+
+}
+
+.conversionHistory div.container {
+    width: calc(50% - 10px);
+    height: 38px;
+    border-radius: 1rem;
+    background-color: #c3baba;
+
+}
+
+.container p {
+    text-align: center;
 }
 
 /* ********* FOOTER ********* */
