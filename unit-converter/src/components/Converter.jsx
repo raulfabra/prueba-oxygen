@@ -1,57 +1,43 @@
 import { useState } from 'react'
 import { iconConverter, iconLike } from '../assets/icons'
+import { checkMeasurement, checkQuantity, getReverseConversion } from '../logic/logic'
 
 export function Converter () {
   const [option, setOption] = useState('kmAmiles')
   const [quantity, setQuantity] = useState('0')
   const [unity, setUnity] = useState('km')
   const [unityTransform, setUnityTransform] = useState('miles')
-  const [result, setResult] = useState('x')
+  const [result, setResult] = useState('0')
 
   const handleSelectChange = (e) => {
     const newOption = e.target.value
+    const newResult = checkQuantity(newOption, quantity)
+    const firstUnity = checkMeasurement(newOption).firstUnity
+    const secondUnity = checkMeasurement(newOption).secondUnity
+
+    setUnity(firstUnity)
+    setUnityTransform(secondUnity)
     setOption(newOption)
-    switch (newOption) {
-      case ('kmAmiles'):
-        setUnity('km')
-        setUnityTransform('miles')
-        break
-      case ('milesAkm'):
-        setUnity('miles')
-        setUnityTransform('km')
-        break
-      case ('piesAmetros'):
-        setUnity('pies')
-        setUnityTransform('metros')
-        break
-      case ('metrosApies'):
-        setUnity('metros')
-        setUnityTransform('pies')
-        break
-      case ('cmApulgadas'):
-        setUnity('cm')
-        setUnityTransform('pulgadas')
-        break
-      case ('pulgadasAcm'):
-        setUnity('pulgadas')
-        setUnityTransform('cm')
-        break
-    }
+    setResult(newResult)
   }
 
   const handleInputChange = (e) => {
     const newQuantity = e.target.value
+    const newResult = checkQuantity(option, newQuantity)
+
     setQuantity(newQuantity)
-    switch (option) {
-      case ('kmAmiles'):
-        setResult(newQuantity * 0.6214)
-        break
-    }
+    setResult(newResult)
   }
 
   const handleTransformChange = () => {
+    setQuantity(result)
     setUnity(unityTransform)
+
+    setResult(quantity)
     setUnityTransform(unity)
+
+    const newOption = getReverseConversion(unityTransform)
+    setOption(newOption)
   }
 
   return (
