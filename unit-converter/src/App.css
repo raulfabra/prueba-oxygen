@@ -173,6 +173,7 @@ h4 {
 }
 
 .conversionHistory div.container {
+    padding: 5px 0;
     width: calc(50% - 10px);
     height: 38px;
 
@@ -181,11 +182,17 @@ h4 {
     align-items: center;
 
     border-radius: 1rem;
-    background-color: #c3baba;
+    background-color: #d9dfe2;
 }
 
 .container p {
     text-align: center;
+    color: #676767;
+}
+
+.container button {
+    margin: 0;
+    padding: 0;
 }
 
 #iconCross {

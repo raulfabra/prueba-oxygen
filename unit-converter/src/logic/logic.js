@@ -24,16 +24,16 @@ export function checkMeasurement (option) {
       return ({ firstUnity: 'miles', secondUnity: 'km' })
 
     case ('piesAmetros'):
-      return ({ firstUnity: 'pies', secondUnity: 'metros' })
+      return ({ firstUnity: 'feet', secondUnity: 'meters' })
 
     case ('metrosApies'):
-      return ({ firstUnity: 'metros', secondUnity: 'pies' })
+      return ({ firstUnity: 'meters', secondUnity: 'feet' })
 
     case ('cmApulgadas'):
-      return ({ firstUnity: 'cm', secondUnity: 'pulgadas' })
+      return ({ firstUnity: 'cm', secondUnity: 'inches' })
 
     case ('pulgadasAcm'):
-      return ({ firstUnity: 'pulgadas', secondUnity: 'cm' })
+      return ({ firstUnity: 'inches', secondUnity: 'cm' })
   }
 }
 

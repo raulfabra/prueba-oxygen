@@ -65,10 +65,10 @@ export function UnitConverter () {
             <select name='opciones' id='opciones' value={option} onChange={handleSelectChange}>
               <option value='kmAmiles'>km → miles</option>
               <option value='milesAkm'>miles → km</option>
-              <option value='piesAmetros'>pies → metros</option>
-              <option value='metrosApies'>metros → pies</option>
-              <option value='cmApulgadas'>cm → pulgadas</option>
-              <option value='pulgadasAcm'>pulgadas → cm</option>
+              <option value='piesAmetros'>feet → meters</option>
+              <option value='metrosApies'>meters → feet</option>
+              <option value='cmApulgadas'>cm → inches</option>
+              <option value='pulgadasAcm'>inches → cm</option>
             </select>
             <button onClick={handleTransformChange}>
               {iconConverter()}
