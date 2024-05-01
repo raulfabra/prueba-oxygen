@@ -79,8 +79,7 @@ select#opciones {
     line-height: 21px;
 
     padding: 8px;
-    width: 100%;
-    /* max-width: 218px; */
+    width: 218px;
 
     color: #FFFFFF;
     background-color: transparent;
