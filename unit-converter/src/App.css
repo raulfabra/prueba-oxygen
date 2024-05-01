@@ -176,12 +176,21 @@ h4 {
 .conversionHistory div.container {
     width: calc(50% - 10px);
     height: 38px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
     border-radius: 1rem;
     background-color: #c3baba;
 }
 
 .container p {
     text-align: center;
+}
+
+#iconCross {
+    cursor: pointer;
 }
 
 /* ********* FOOTER ********* */
