@@ -53,3 +53,9 @@ export function getReverseConversion (firstUnity) {
       return ('pulgadasAcm')
   }
 }
+
+export function getHistoryValue () {
+  const recordsFromStorage = window.localStorage.getItem('records')
+  if (recordsFromStorage) return JSON.parse(recordsFromStorage)
+  else return []
+}

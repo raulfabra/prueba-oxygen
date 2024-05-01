@@ -1,38 +1,35 @@
 import { useEffect, useState } from 'react'
 import { iconCross } from '../assets/icons'
+import { getHistoryValue } from '../logic/logic'
 
-export function Saved ({ e }) {
-  const [records, setRecords] = useState(() => {
-    const recordsFromStorage = window.localStorage.getItem('records')
-    if (recordsFromStorage) return JSON.parse(recordsFromStorage)
-    else return []
-  })
-
-  const handleDelete = (e) => {
-    const div = e.target.closest('div')
-    const { index } = div.dataset
-    const newRecords = [...records]
-    newRecords.splice(index, 1)
-    setRecords([...newRecords])
-    window.localStorage.setItem('records', JSON.stringify([...newRecords]))
-  }
+export function Saved ({ itemObject }) {
+  const [records, setRecords] = useState(getHistoryValue())
 
   useEffect(() => {
-    if (e.quantity === undefined) return
+    if (itemObject.quantity === undefined) return
     if (records.length === 8) return
 
     const id = records.length + 1
     const newRecord = {
       id,
-      quantity: e.quantity,
-      firstUnity: e.unity,
-      result: e.result,
-      secondUnity: e.unityTransform
+      quantity: itemObject.quantity,
+      firstUnity: itemObject.unity,
+      result: itemObject.result,
+      secondUnity: itemObject.unityTransform
     }
 
     setRecords([...records, newRecord])
     window.localStorage.setItem('records', JSON.stringify([...records, newRecord]))
-  }, [e])
+  }, [itemObject])
+
+  const handleDelete = (event) => {
+    const dataDeleted = event.target.closest('div')
+    const { index } = dataDeleted.dataset
+    const newRecords = [...records]
+    newRecords.splice(index, 1)
+    setRecords([...newRecords])
+    window.localStorage.setItem('records', JSON.stringify([...newRecords]))
+  }
 
   return (
     <section>
